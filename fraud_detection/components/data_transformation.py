@@ -18,10 +18,10 @@ from sklearn.impute import SimpleImputer
 
 
 
-class DataTransformation:
+class DataTransformation():
     def __init__(self, data_ingestion_artifact: DataIngestionArtifact,
                  data_transformation_config: DataTransformationConfig,
-                 data_validation_artifact: DataValidationArtifact):
+                 data_validation_artifact: DataValidationArtifact=None):
         """
         :param data_ingestion_artifact: Output reference of data ingestion artifact stage
         :param data_transformation_config: configuration for data transformation
