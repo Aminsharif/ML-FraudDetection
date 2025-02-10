@@ -114,34 +114,41 @@
 	<!-- Navigation -->
 	<nav class="navbar navbar-light bg-light static-top">
 		<div class="container-fluid">
-			<a class="navbar-brand" href="https://ineuron.ai"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIkAAAAlCAMAAABBJDpuAAAAVFBMVEX/fgD/iQA7NzIyMjMnNYInNYEnNYInNYEzMzInNYQnNYETJzsnNYIwN1wxMjNoTis4O1YrNm0xOF47PE9DP0dEQEVpTVkAJJ4nNYEOLJHJbiAzMzOmmmHRAAAAFnRSTlOh/vu+986oen9fP2UqEzQkFAIDAAEEILVBJQAAA3FJREFUWMPNmO2WoyAMQG0VBARtdVRs3/89NwkgaF1rd2aOm18tIrnkgwSz7n+R7LcV1ELkeS7E7VySRlyfQXJhTiO55c+liP4cEuH1X8E7gaV+S3Jv2zYZ/Vr+/Sdx2vP6doc/fSPcf/GOpLSFVXFUW8t+giRP47TOd60yk1hbxIhSP0ACKPWrvw7YBIT/lcQY84G3Wk17ugWQfg5UsQJpjflKSLQi7xTWyk0SXTJ4VnB5D1yccxmp4Z+mX5KGNS+SPXVNll0ulyxL0wYmloBB6zL/MpCoAgjAJiUM6w0SboMwPUdRogvNKcNM3smFdRvEcJJkKcflQa+X0pNIfBGW0zKqjyQtw4VLKQlI7ZLgdrRNSZDjMQx2GB4pCkxkCrfGWUTJ0Egan6muCHgJCUwtnCk0mrJ9Q8K5LUqtdSfynkAedhynaRqngVDaXLiJEAzkFkM71IuIlWRYtSQpbXSZDvQ7JPCei9brs+oaABkn74LRIkpFaVxGnzjvIxTYREOoEwn5r01JTDRTcO87Eu3zNUeTPKZpjrIRrNIDCjzALbPk7LJMIokOEQu2K7yKQAKvFDF9pVe0R+LGb7h1MMkw2ijjA/1zhSfSphvEAChXJEhAqwYStIJWXnTpvbdH4hTUwSQ2JRmQpILDLYbB7J41SYiLcNozu5Z3JMo7RxBJahI7WSRByCMkqJt9hySESbVJcvmARJGFExJmdBSl2oM2+T4JLWfgaGFptizlPUm1FydHSdyZ7UnS4ySph2kS0kJrkvr5NJg7dnrJnfxgxPozRPGtkyPNOxtaiDvbIAF9L+5B5zTI2BwlwXmM+U3zReav3o0F8oUEFFZ42McDZYomOUziFmezgWyo251Uc1nyKJol7URCEvIYUEbHYaEGQi9C9egwCdVfHwiaajfjKMUcHcRacCylhWJbJDfq47EEDhYqoIWjHnwDXZPpPiChPQelLU+Cbm4w50FmYgkvFwpiWwCC/Um/SLcNElOC9RVj6qWpCiEMvRUK4zLpdKmPw8rVldy/qxjn60wLrVLWJIPLiZJRr3fsvnOHPvare+lB93tb37T20D82jqOt+zNuXhuNvNhp7X+PpHb3rvV9R5xjE2SpyCN9ffQO+GtWIZr5Xnytz4gTMIRYfys47/uJEXny/aQ/95tSUwmU+uRvSp/IHzQqZYpYrQmxAAAAAElFTkSuQmCC" /></a>
+			<a class="navbar-brand" href="https://aminsharif.github.io/">AMIN SHARIF</a>
 		</div>
 	</nav>
 
 	<!-- Testimonials -->
 	<section class="testimonials text-center">
 		<div class="container-fluid">
-			<h4 class="my-4 title">Prediction</h4>
+			<h4 class="my-4 title">Insurance Fraud Detection</h4>
 			<div class="row">
 				<div class="col-md-6 col-xs-12">
 					<br/>
-					<form method="post" id="datafetch_form" enctype="multipart/form-data">
-						<div class="form-group files color">
-							<input type="text" name = "csvfile" id="csvfile" class="form-control" placeholder="Enter absolute file path." required>
+					<div class="form-group files color">
+						<div class="form-group">
+							<label for="csvFileInput">Choose CSV File</label>
+							<input type="file" class="form-control" id="csvFileInput" accept=".csv">
 						</div>
-						<div class=""><button class="form-control btn-primary" id="customfile">Custom File Predict</button></div>
-						<br/><center><b>Or</b></center><br/>
-						<button class="form-control btn-primary mb-5" id="defaultfile" data-path = "Prediction_Batch_files">
-							Default File Predict
-						</button>
+						<button class="btn btn-primary btn-block" id="uploadBtn">Upload CSV</button>
+					</div>
+					<br/>
+					<center><b>Or</b></center><br/>
+					<button class="form-control btn-primary mb-5" id="defaultfile" data-path = "Prediction_Batch_files">
+						Default File Predict
+					</button>
+					<form method="post" id="datafetch_form" enctype="multipart/form-data">
+						
+						
 					</form>
 				</div>
 				<div class="res-container  col-md-6 col-xs-12">
 					<div class="result-box shadow rounded-lg">
 						<h6 class="title">Results</h6>
-						<div class="json-result">
+						<!-- <div class="json-result">
 							
-						</div>
+						</div> -->
+						<div id="result"></div>
 					</div>
 				</div>
 			</div>						
@@ -154,13 +161,11 @@
 			<div class="row">
 				<div class="col-lg-6 h-100 text-center my-auto mx-auto">
 					<ul class="list-inline mb-1">
-						<li class="list-inline-item"><a href="https://ineuron.ai/home/about-us/">About</a></li>
+						<li class="list-inline-item"><a href="https://aminsharif.github.io/#about-me">About</a></li>
 						<li class="list-inline-item">&sdot;</li>
-						<li class="list-inline-item"><a href="https://ux.ineuron.ai/connect.php">Contact</a></li>
-						<li class="list-inline-item">&sdot;</li>
-						<li class="list-inline-item"><a href="https://ineuron.ai/privacy.html">Privacy Policy</a></li>
+						<li class="list-inline-item"><a href="https://aminsharif.github.io/#contact">Contact</a></li>
 					</ul>
-					<p class="text-muted small mb-2 mb-lg-0">&copy; iNeuron.ai 2020. All Rights Reserved.</p>
+					<p class="text-muted small mb-2 mb-lg-0">&copy; Amin 2025. All Rights Reserved.</p>
 				</div>
 			</div>
 		</div>
@@ -175,36 +180,96 @@
 	<script>
 		$(document).ready(function(){
 			$('#loading').hide();
-			$("#customfile").click(function(e){
-				e.preventDefault();
-				$('#loading').show();
-				var path = $("#csvfile").val();
-				$.ajax({
-					//change url below
-					url : "/predict",
-					type: "POST",
-					data: {filepath:path},
-					success: function(response){
-						$(".json-result").html('<p>"Prediction File created at !!!Prediction_Output_File/Predictions.csvand few of the predictions are"</p><pre>' + response + '</pre>');	
-						$('#loading').hide();
-					}
-				});
+			// $("#uploadBtn").click(function() {
+			// 	var fileInput = $("#csvFileInput")[0];  // Get file input element
+			// 	if (fileInput.files.length === 0) {
+			// 		alert("Please select a CSV file.");
+			// 		return;
+			// 	}
+
+			// 	var file = fileInput.files[0];  // Get the selected file
+			// 	var formData = new FormData();
+			// 	formData.append("file", file);  // Append file to FormData
+
+			// 	$.ajax({
+			// 		url: "/predict_csv",
+			// 		type: "POST",  // ✅ Must be POST
+			// 		processData: false,
+			// 		contentType: false,
+			// 		data: formData,
+			// 		success: function(response) {
+			// 			$("#result").html("<pre>" + JSON.stringify(response, null, 2) + "</pre>");
+			// 		},
+			// 		error: function(xhr, status, error) {
+			// 			$("#result").html("<p>Error: " + xhr.responseText + "</p>");
+			// 		}
+			// 	});
+			// });
+			$("#uploadBtn").click(function() {
+			var fileInput = $("#csvFileInput")[0];
+			if (fileInput.files.length === 0) {
+				alert("Please select a CSV file.");
+				return;
+			}
+
+			var file = fileInput.files[0];
+			var formData = new FormData();
+			formData.append("file", file);
+
+			$.ajax({
+				url: "/predict_csv",  // Full URL to FastAPI
+				type: "POST",
+				processData: false,
+				contentType: false,
+				data: formData,
+				xhrFields: {
+					responseType: 'blob'  // Ensure the response is treated as a file
+				},
+				success: function(response, status, xhr) {
+					// Create a link to trigger the download
+					var blob = response;
+					var downloadLink = document.createElement('a');
+					downloadLink.href = window.URL.createObjectURL(blob);
+					downloadLink.download = 'processed_data.csv';  // Name of the file to download
+					downloadLink.click();  // Trigger the download
+					$("#result").html("<pre>" + "File downloaded! Please check download directory." + "</pre>");
+				},
+				error: function(xhr, status, error) {
+					console.error("Error:", xhr.responseText);
+					$("#result").html("<p>Error: " + xhr.responseText + "</p>");
+				}
 			});
-			$("#defaultfile").click(function(e){
-				e.preventDefault();
-				$('#loading').show();
+    	});
+		
+		$("#defaultfile").click(function(e){
+			e.preventDefault();
+			$('#loading').show();
 				var path = $(this).attr("data-path");
 				$.ajax({
-					//change url below
-					url : "/predict",
+					url: "/predict",
 					type: "POST",
-					data: {filepath:path},
-					success: function(response){
-						$(".json-result").html('<p>"Prediction File created !!!</p><pre>' + response + '</pre>');
-						$('#loading').hide();
-					}
-				});
-				
+					contentType: "application/json",  // ✅ Ensure JSON is sent
+					data: JSON.stringify({ filepath: path }),  // ✅ Convert to JSON string
+					xhrFields: {
+					responseType: 'blob'  // Ensure the response is treated as a file
+				},
+				success: function(response, status, xhr) {
+					// Create a link to trigger the download
+					$('#loading').hide();
+					var blob = response;
+					var downloadLink = document.createElement('a');
+					downloadLink.href = window.URL.createObjectURL(blob);
+					downloadLink.download = 'processed_data.csv';  // Name of the file to download
+					downloadLink.click();  // Trigger the download
+					$("#result").html("<pre>" + "File downloaded! Please check download directory." + "</pre>");
+
+				},
+				error: function(xhr, status, error) {
+					console.error("Error:", xhr.responseText);
+					$("#result").html("<p>Error: " + xhr.responseText + "</p>");
+					$('#loading').hide();
+				}
+			});
 			});
 		});
 	</script>

@@ -4,10 +4,10 @@ import numpy as np
 import pandas as pd
 from imblearn.combine import SMOTEENN
 from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import StandardScaler, OneHotEncoder, OrdinalEncoder, PowerTransformer
+from sklearn.preprocessing import StandardScaler, OneHotEncoder, OrdinalEncoder
 from sklearn.compose import ColumnTransformer
 
-from fraud_detection.constants import TARGET_COLUMN, SCHEMA_FILE_PATH, CURRENT_YEAR
+from fraud_detection.constants import TARGET_COLUMN, SCHEMA_FILE_PATH
 from fraud_detection.entity.config_entity import DataTransformationConfig
 from fraud_detection.entity.artifact_entity import DataTransformationArtifact, DataIngestionArtifact, DataValidationArtifact
 from fraud_detection.exception import ExceptionHandle
@@ -17,10 +17,9 @@ from fraud_detection.entity.estimator import TargetValueMapping
 from sklearn.impute import SimpleImputer
 
 
-
 class DataTransformation():
-    def __init__(self, data_ingestion_artifact: DataIngestionArtifact,
-                 data_transformation_config: DataTransformationConfig,
+    def __init__(self, data_ingestion_artifact: DataIngestionArtifact=None,
+                 data_transformation_config: DataTransformationConfig=None,
                  data_validation_artifact: DataValidationArtifact=None):
         """
         :param data_ingestion_artifact: Output reference of data ingestion artifact stage
