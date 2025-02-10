@@ -25,7 +25,7 @@ CURRENT_YEAR = date.today().year
 PREPROCSSING_OBJECT_FILE_NAME = "preprocessing.pkl"
 SCHEMA_FILE_PATH = os.path.join("config", "schema.yaml")
 
-DEFAULT_PREDDICT_FILE_PATH = "default_preddict_file"
+DEFAULT_PREDDICT_FILE_PATH = "default_predict_file"
 DEFAULT_PREDDICT_FILE_NAME = "default.csv"
 
 """
