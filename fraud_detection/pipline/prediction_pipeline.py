@@ -1,8 +1,9 @@
 import sys
-from income_prediction.exception import ExceptionHandle
-from income_prediction.logger import logging
-from income_prediction.components.prediction import Prediction
+from fraud_detection.exception import ExceptionHandle
+from fraud_detection.logger import logging
+from fraud_detection.components.prediction import Prediction
 from pandas import DataFrame
+
 
 class PredictionPipeline:
     def __init__(self):

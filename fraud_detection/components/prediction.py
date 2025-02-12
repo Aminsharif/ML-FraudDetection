@@ -11,6 +11,7 @@ from fraud_detection.components.data_transformation import DataTransformation
 import joblib
 import os
 from pandas import DataFrame
+from fraud_detection.entity.estimator import TargetValueMapping
 
 class Prediction:
     def __init__(self):
@@ -38,6 +39,9 @@ class Prediction:
             model = joblib.load(os.path.join(MODEL_DIR, MODEL_FILE_NAME))
             prediction_value = model.predict(x)
             df['prediction'] = prediction_value
+
+            target_value_mapping = TargetValueMapping()
+            df['prediction'] = df['prediction'].replace(target_value_mapping.reverse_mapping())
             logging.info(f"Result: {prediction_value}")
             return df
 
